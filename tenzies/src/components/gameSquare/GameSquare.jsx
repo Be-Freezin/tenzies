@@ -19,13 +19,23 @@ const GameSquare = () => {
 	function rollDice() {
 		setDice(allNewDice())
 	}
-	function hold(id){
+	function hold(id) {
 		console.log(id)
+		setDice(oldDice =>
+			oldDice.map((die) => {
+				return die.id === id ? { ...die, isHeld: !die.isHeld } : die
+			})
+		)
 	}
 
 	const [dice, setDice] = useState(allNewDice)
 	const diceArray = dice.map((die) => (
-		<Dice key={die.id} value={die.value} isHeld={die.isHeld} handleHold={() => hold(die.id)} />
+		<Dice
+			key={die.id}
+			value={die.value}
+			isHeld={die.isHeld}
+			handleHold={() => hold(die.id)}
+		/>
 	))
 	console.log(allNewDice())
 	return (
