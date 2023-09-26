@@ -76,7 +76,7 @@ function handleClick(){
 			})
 		)
 	}
-
+console.log('https://opentdb.com/api.php?amount=10')
 	const [dice, setDice] = useState(allNewDice)
 	const [tenzies, setTenzies] = useState(false)
 	const diceArray = dice.map((die) => (
